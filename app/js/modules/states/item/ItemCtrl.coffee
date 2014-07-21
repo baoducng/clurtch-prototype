@@ -7,17 +7,19 @@ angular.module('clurtch.modules.states.item')
   'MenuItem'
   'Review'
   '$ionicLoading'
-  ($scope, $stateParams, $http, MenuItem, Review, $ionicLoading) ->
+  '$ionicGesture'
+  ($scope, $stateParams, $http, MenuItem, Review, $ionicLoading, $ionicGesture) ->
     $scope.itemId = $stateParams.itemId
     $ionicLoading.show(
       noBackdrop: true,
       duration: 2000,
       template: 'Loading...'
     )
+    # $ionicGesture.on('doubletap', (e)-> console.log('tapped'), $scope.likableImage);
     MenuItem.find($scope.itemId)
       .success (data)->
         $scope.item = data[0]
-        # console.log data
+        # console.log(data);
         #change Rating to Stars
         tempRating = $scope.item.rating
         stars = ''
@@ -32,11 +34,10 @@ angular.module('clurtch.modules.states.item')
 
     Review.getByItemId($scope.itemId)
       .success (data) ->
-        # console.log(data)
         $scope.reviews = data
         $ionicLoading.hide()
-        # console.log $scope.reviews
       .error (err) ->
         console.log(err)
-
+    $scope.upvote = (review)->
+      console.log(review)
 ])
