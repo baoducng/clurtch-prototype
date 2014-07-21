@@ -6,9 +6,25 @@
 
 var errors = require('./components/errors');
 var cors = require('cors');
-module.exports = function(app) {
+var busboy = require('connect-busboy');
+
+
+
+
+module.exports.applyRoutes = function(app) {
 
   app.use(cors())
+  app.use(busboy({ immediate: true }));
+  // app.use(function(req, res, next) {
+  //   req.busboy.on('field', function(fieldname, val) {
+  //    // console.log(fieldname, val);
+  //     req.body[fieldname] = val;
+  //   });
+  //
+  //   req.busboy.on('finish', function(){
+  //    next();
+  //   });
+  // });
   // Insert routes below
   app.use('/api/reviews', require('./api/review'));
   app.use('/api/items', require('./api/item'));
