@@ -19,8 +19,7 @@ angular.module('clurtch.modules.states.item')
     MenuItem.find($scope.itemId)
       .success (data)->
         $scope.item = data[0]
-        # console.log(data);
-        #change Rating to Stars
+        # console.log($scope.item);
         tempRating = $scope.item.rating
         stars = ''
         while tempRating >= 1
@@ -35,6 +34,7 @@ angular.module('clurtch.modules.states.item')
     Review.getByItemId($scope.itemId)
       .success (data) ->
         $scope.reviews = data
+        console.log($scope.reviews)
         $ionicLoading.hide()
       .error (err) ->
         console.log(err)

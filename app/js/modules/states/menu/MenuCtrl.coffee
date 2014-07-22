@@ -37,9 +37,6 @@ angular.module('clurtch.modules.states.menu')
           # $scope.$apply()
         $ionicLoading.hide()
       )
-
-
-
     #
     # MenuItem.get()
     #   .success (data)->
@@ -77,8 +74,6 @@ angular.module('clurtch.modules.states.menu')
         .error (data)->
           console.log(data)
           throw data
-
-
       # Business.get()
       #   .success( (data)->
       #     $scope.items = data

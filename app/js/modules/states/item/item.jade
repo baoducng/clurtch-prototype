@@ -1,18 +1,18 @@
 ion-view(title="{{item.name}}")
   ion-nav-bar.bar-positive
     ion-nav-back-button Back
-    ion-content
-      div.list.card
-          img.full-image(src='{{item.top_image_url}}' ng-model="likableImage")
-          div
-            h4.assertive {{item.stars}}
-              div.pullright.energized {{item.review_count}} reviews
-          h5.dark Seared Filet of Beef with Cumin Potatoes, Swiss Chard, Tomato-Corn Relish and Basil Butter
-          h4 User Reviews
-          div.list(ng-repeat="review in reviews")
-            div.item.item-avatar.borderless
-              img(src="{{review.image_url}}")
-              h4 {{review._id}}
-              div.item.item-text-wrap.borderless {{review.review_text}}
-              button.button.icon.ion-arrow-up-b(ng-click="")
-              button.button.icon.ion-arrow-down-b(ng-click="")
+  ion-content
+    div.list.card
+      img.full-image(src='{{item.top_image}}' ng-model="likableImage")
+      div
+        h4.assertive {{item.stars}}
+          div.pullright.energized {{item.review_count}} reviews
+      h5.dark Seared Filet of Beef with Cumin Potatoes, Swiss Chard, Tomato-Corn Relish and Basil Butter
+      h4 User Reviews
+      div.list(ng-repeat="review in reviews")
+        div.item.item-avatar.borderless
+          img(src="{{review.image_url}}")
+          h4 {{review._id}}
+          div.item.item-text-wrap.borderless {{review.text}}
+          button.button.button-clear.icon.ion-arrow-up-b(ng-click="")
+          button.button.button-clear.icon.ion-arrow-down-b(ng-click="")
